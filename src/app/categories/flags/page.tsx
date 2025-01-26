@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Itim } from "next/font/google"
+import Image from "next/image"
 
 const itim = Itim({ weight: "400", subsets: ["latin"] })
 
@@ -214,7 +215,7 @@ const GamePage = () => {
                   transition={{ duration: 0.3 }}
                   className="flex justify-center mb-4 relative"
                 >
-                  <img
+                  <Image
                     src={`https://flagcdn.com/w320/${currentQuestion?.toLowerCase().slice(0, 2)}.png`}
                     alt="Country flag"
                     className="w-64 h-auto shadow-lg rounded"

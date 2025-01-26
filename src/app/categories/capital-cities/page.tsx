@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Itim } from "next/font/google"
+import Image from "next/image"
 
 const itim = Itim({ weight: "400", subsets: ["latin"] })
 
@@ -221,9 +222,11 @@ const GamePage = () => {
                   className="flex flex-col items-center mb-4 relative"
                 >
                   <p className="text-3xl font-bold text-gray-100 mb-2 text-center">{currentQuestion?.country}</p>
-                  <img
+                  <Image
                     src={`https://flagcdn.com/w80/${currentQuestion?.country.toLowerCase().slice(0, 2)}.png`}
                     alt={`${currentQuestion?.country} flag`}
+                    width={80}
+                    height={40}
                     className="w-20 h-auto shadow-lg rounded mb-4"
                   />
                   {showCorrectAnswer && (

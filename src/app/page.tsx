@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import dynamic from "next/dynamic";
-import Image from "next/image";
+
 
 const SpinningGlobe = dynamic(() => import("@/components/ui/spinning-globe"), { ssr: false });
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background"), { ssr: false });
