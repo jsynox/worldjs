@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense, use } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

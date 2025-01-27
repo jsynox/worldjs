@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -25,12 +25,13 @@
     "globe.gl": "^2.39.2",
     "lucide-react": "^0.473.0",
     "next": "^15.1.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-shimmer-effects": "^1.0.3",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.172.0"
+    "three": "^0.172.0",
+    "three-globe": "^2.41.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
