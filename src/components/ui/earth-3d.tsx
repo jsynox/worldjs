@@ -4,7 +4,7 @@ import React, { useRef } from "react"
 import { Canvas, useFrame, useLoader } from "@react-three/fiber"
 import { OrbitControls, Stars } from "@react-three/drei"
 import * as THREE from "three"
-import { TextureLoader } from "three/src/loaders/TextureLoader"
+import { TextureLoader } from "three"
 
 function Earth() {
   const earthRef = useRef<THREE.Mesh>(null)
