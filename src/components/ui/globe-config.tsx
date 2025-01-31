@@ -26,7 +26,7 @@ const GlobeConfig = () => {
       globeInstance
         .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
         .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
-        .backgroundColor("rgba(0,0,0,0)");
+        //.backgroundColor("rgba(0,0,0,0)");
 
       scene.add(globeInstance);
       camera.position.z = 400;
