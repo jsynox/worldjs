@@ -9,12 +9,14 @@ const GlobeConfig = () => {
 
   useEffect(() => {
     let globeInstance: Globe | null = null;
+    let renderer: THREE.WebGLRenderer | null = null; // Store renderer for cleanup
+    let animationFrameId: number;
 
     if (globeEl.current) {
       // Create a Three.js scene
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer = new THREE.WebGLRenderer({ alpha: true });
       renderer.setSize(176, 176);
 
       if (globeEl.current) {
@@ -25,26 +27,34 @@ const GlobeConfig = () => {
       globeInstance = new Globe();
       globeInstance
         .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
-        .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
-        //.backgroundColor("rgba(0,0,0,0)");
+        .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png");
+        // .backgroundColor("rgba(0,0,0,0)"); // ❌ This method does not exist
 
       scene.add(globeInstance);
       camera.position.z = 400;
 
       // Animation loop
       const animate = () => {
-        requestAnimationFrame(animate);
-        globeInstance?.rotation.y += 0.001; // Add rotation to the globe
-        renderer.render(scene, camera);
+        animationFrameId = requestAnimationFrame(animate);
+        if (globeInstance) {
+          (globeInstance as any).rotation.y += 0.001; // Fix TypeScript issue
+        }
+        renderer?.render(scene, camera);
       };
 
       animate();
     }
 
     return () => {
-      // Cleanup
+      // Cleanup function
       if (globeInstance) {
-        globeInstance.dispose?.(); // Dispose of the globe
+        (globeInstance as any).dispose?.(); // Ensure safe disposal
+      }
+      if (renderer) {
+        renderer.dispose(); // Clean up Three.js renderer
+      }
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId); // Stop animation loop
       }
     };
   }, []);
