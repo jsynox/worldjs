@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Itim, Roboto } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 const itim = Itim({ weight: "400", subsets: ["latin"] });
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={`${itim.className} ${roboto.className}`}>
         <div className="relative">
           {children}
+          <Analytics />
         </div>
       </body>
     </html>
